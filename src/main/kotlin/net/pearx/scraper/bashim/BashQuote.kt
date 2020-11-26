@@ -19,7 +19,7 @@ data class BashQuote(
 )
 
 object InstantSerializer : KSerializer<Instant> {
-    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("net.pearx.dataset.bashim.InstantSerializer", PrimitiveKind.STRING)
+    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("net.pearx.scraper.bashim.InstantSerializer", PrimitiveKind.STRING)
 
     override fun deserialize(decoder: Decoder): Instant = Instant.parse(decoder.decodeString())
 
