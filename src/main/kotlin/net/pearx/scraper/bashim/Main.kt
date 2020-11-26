@@ -15,13 +15,19 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import kotlin.system.exitProcess
 
 const val BASH_ENDPOINT = "https://bash.im/"
 const val BASH_INDEX_ENDPOINT = BASH_ENDPOINT + "index/{PAGE}"
 val JSON = Json {}
 
 fun main(args: Array<String>) {
+    if(args.isEmpty()) {
+        println("Usage: bashim-scraper <output file>")
+        exitProcess(-1)
+    }
     val output = File(args[0])
+
     val dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy в H:mm").withZone(
         ZoneId.ofOffset(
             "UTC",
