@@ -1,6 +1,8 @@
 plugins {
+    application
     kotlin("jvm")
     kotlin("plugin.serialization")
+    id("com.github.johnrengelman.shadow")
 }
 
 val projectVersion: String by project
@@ -17,6 +19,11 @@ version = projectVersion
 repositories {
     jcenter()
 }
+
+application {
+    mainClassName = "$group.Main"
+}
+
 
 dependencies {
     implementation(kotlin("stdlib${if (kotlinStdlib.isEmpty()) "" else "-$kotlinStdlib"}"))
