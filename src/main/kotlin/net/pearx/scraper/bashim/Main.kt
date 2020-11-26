@@ -52,7 +52,7 @@ fun main(args: Array<String>) {
                 val text = quote.getElementsByClass("quote__body").first().toText()
 
                 pw.append(JSON.encodeToString(BashQuote(id, date, rating, text)))
-                pw.appendln()
+                pw.appendLine()
             }
         }
     }
